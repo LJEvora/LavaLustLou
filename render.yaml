@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: lavalust-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: "php -S 0.0.0.0:$PORT -t public public/index.php"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: DB_DRIVER
+        value: mysql
+      - key: DB_HOST
+        value: mysql-20f9d9d4-lavalust05-8a5a.d.aivencloud.com
+      - key: DB_PORT
+        value: "16963"
+      - key: DB_USER
+        value: avnadmin
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        value: defaultdb
+      - key: DB_CHARSET
+        value: utf8mb4
+      - key: DB_SSL_CA
+        value: ca.pem
+      - key: JWT_SECRET
+        sync: false
+      - key: REFRESH_TOKEN_KEY
+        sync: false

@@ -145,10 +145,11 @@ $config['users_table'] = 'users';
 | a browser, so set your real domain in production.
 |
 */
-$config['allow_origin'] = [
-    'https://api-tester.marasigan.dev',
-    'http://localhost:8080'
-    ];
+$frontend_origins = array_filter(array_map('trim', explode(',', getenv('FRONTEND_URL') ?: '')));
+$config['allow_origin'] = array_values(array_unique(array_merge(
+    ['http://localhost:5173', 'http://127.0.0.1:5173'],
+    $frontend_origins
+)));
 
 /*
 |--------------------------------------------------------------------------

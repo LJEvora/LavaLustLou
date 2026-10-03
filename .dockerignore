@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.git
+.gitignore
+.dockerignore
+storage/
+runtime/*
+!runtime/.htaccess
+!runtime/index.html
+vendor/
+app/vendor/
+*.log
+*.cache
