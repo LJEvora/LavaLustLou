@@ -101,7 +101,7 @@ class ApiController extends Controller
             'username'  => $data['username'],
             'email'     => $data['email'],
             'password'  => password_hash($data['password'], PASSWORD_BCRYPT),
-            'role'      => $data['role'] ?? 'user',
+            'role'      => 'user',
             'is_active' => 1,
         ]);
 
