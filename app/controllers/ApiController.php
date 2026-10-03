@@ -6,6 +6,7 @@ class ApiController extends Controller
     public function __construct()
     {
         parent::__construct();
+        handle_cors();
         $this->call->model('AuthModel');
         $this->call->model('TokenModel');
         $this->call->model('ProductModel');
